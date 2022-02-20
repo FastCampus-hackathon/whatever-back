@@ -1,0 +1,29 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/whatever
+    username: root
+    password: password
+    hikari:
+      minimum-idle: 1
+      maximum-pool-size: 5
+  mvc:
+    hiddenmethod:
+      filter:
+        enabled: true
+  jpa:
+    show-sql: true
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    properties:
+      hibernate:
+        format_sql: true
+    hibernate:
+      ddl-auto: none
+      use-new-id-generator-mappings: false
+server:
+  port: 8080
+  error:
+    include-exception: false      # Response ? Exception ? ????
+    include-message: always       # Response ? Exception Message ? ???? (never | always | on_param)
+    include-stacktrace: on_param  # Response ? Stack Trace ? ???? (never | always | on_param) on_trace_params ? deprecated
+    whitelabel.enabled: true      # ?? ?? ? Spring ?? ?? ??? ?? ??
