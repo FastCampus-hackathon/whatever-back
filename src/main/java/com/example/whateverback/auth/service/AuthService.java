@@ -9,26 +9,21 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 @Service
 @RequiredArgsConstructor
-@RequestMapping("/auth")
 public class AuthService {
 
     private final JwtAuthenticationProvider jwtAuthenticationProvider;
     private final UserService userService;
     private final PasswordEncoder passwordEncoder;
 
-    @PostMapping("/join")
     public String join(JoinDTO joinDTO) {
         joinDTO.encodePassword(passwordEncoder);
         userService.saveUser(joinDTO);
         return "join success";
     }
 
-    @PostMapping("/login")
     public String login(LoginDTO loginDTO) {
         User user = userService.findByUserId(loginDTO.getUserId());
         if (!passwordEncoder.matches(loginDTO.getPassword(), user.getPassword())) {
@@ -37,7 +32,6 @@ public class AuthService {
         return jwtAuthenticationProvider.createToken(String.valueOf(user.getId()), user.getRoles());
     }
 
-    @PostMapping("/logout")
     public void logout() {
         SecurityContextHolder.clearContext();
     }
