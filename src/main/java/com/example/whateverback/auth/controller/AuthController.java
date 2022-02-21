@@ -21,7 +21,7 @@ public class AuthController {
     public ResponseEntity login(@RequestBody LoginDTO loginDTO, HttpServletResponse httpServletResponse) {
         String token = authService.login(loginDTO);
         httpServletResponse.addHeader("X-AUTH-TOKEN", token);
-        return new ResponseEntity(authService.login(loginDTO), HttpStatus.OK);
+        return new ResponseEntity("login success", HttpStatus.OK);
     }
 
     @PostMapping("/join")
