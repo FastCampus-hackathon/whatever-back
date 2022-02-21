@@ -1,4 +1,4 @@
-package com.example.whateverback;
+package com.example.whateverback.category.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -17,9 +17,11 @@ public class JobType {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id; //근무 형태 번호
-    @Column(nullable = false)
-    private Long job_type_cd; //코드
-    @Column(nullable = false)
-    private String job_type_name; //근무 형태명
+
+    @Column(nullable = false, name = "job_type_cd")
+    private Long jobTypeCd; //코드
+
+    @Column(nullable = false, name = "job_type_name")
+    private String jobTypeName; //근무 형태명
 
 }

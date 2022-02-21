@@ -1,4 +1,4 @@
-package com.example.whateverback;
+package com.example.whateverback.member.model.entity;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
@@ -23,13 +23,12 @@ import java.util.stream.Collectors;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@DynamicInsert
 public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "userId", unique = true, nullable = false)
+    @Column(name = "user_id", unique = true, nullable = false)
     private String userId;
 
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
@@ -38,10 +37,6 @@ public class User implements UserDetails {
 
     @ElementCollection(fetch = FetchType.EAGER)
     private List<String> roles = new ArrayList<>();
-
-    @Column
-    @ColumnDefault("0")
-    private int token;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

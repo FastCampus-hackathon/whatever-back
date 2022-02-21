@@ -1,4 +1,4 @@
-package com.example.whateverback;
+package com.example.whateverback.category.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -17,12 +17,16 @@ public class Industry {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;  //업종번호
-    @Column(nullable = false)
-    private Long ind_mcd;  //상위코드
-    @Column(nullable = false)
-    private Long ind_bcd; //업종코드
-    @Column(nullable = false)
-    private Long ind_cd; //코드
+
+    @Column(nullable = false, name = "ind_mcd")
+    private Long indMcd;  //상위코드
+
+    @Column(nullable = false, name = "ind_bcd")
+    private Long indBcd; //업종코드
+
+    @Column(nullable = false, name = "ind_cd")
+    private Long indCd; //코드
+
     @Column(nullable = false)
     private String name; //업종 키워드명
 

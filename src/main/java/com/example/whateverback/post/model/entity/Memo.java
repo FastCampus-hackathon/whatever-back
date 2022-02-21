@@ -1,4 +1,4 @@
-package com.example.whateverback;
+package com.example.whateverback.post.model.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -17,8 +17,9 @@ public class Memo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @ManyToOne
-    @JoinColumn(name= "")
-    private Post id2;
+    @JoinColumn(name= "post_id")
+    private Post post;
 
 }
