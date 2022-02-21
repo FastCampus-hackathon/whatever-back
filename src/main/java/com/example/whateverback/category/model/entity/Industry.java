@@ -33,7 +33,7 @@ public class Industry {
     @Column(nullable = false)
     private String keyword; //업종 키워드명
 
-    @Column(nullable = false, name = "m_name")
-    private String mName; //산업명
+    @Column(nullable = false, name = "mid_name")
+    private String midName; //산업명
 
 }
