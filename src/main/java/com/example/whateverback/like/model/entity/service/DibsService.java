@@ -33,7 +33,7 @@ public class DibsService {
 
         dibsRepository.save(dibsDTO.toEntity());
 
-        if(dibsRepository.findByUserIdAndPostId(user.get(), post.get()).isEmpty()){
+        if(dibsRepository.findByUserAndPost(user.get(), post.get()).isEmpty()){
             return false;
         } else {
             return true;
