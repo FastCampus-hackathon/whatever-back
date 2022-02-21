@@ -18,10 +18,9 @@ public class AuthService {
     private final UserService userService;
     private final PasswordEncoder passwordEncoder;
 
-    public String join(JoinDTO joinDTO) {
+    public void join(JoinDTO joinDTO) {
         joinDTO.encodePassword(passwordEncoder);
-        userService.saveUser(joinDTO);
-        return "join success";
+        userService.saveUser(joinDTO);;
     }
 
     public String login(LoginDTO loginDTO) {
