@@ -1,5 +1,6 @@
 package com.example.whateverback;
 
+import com.example.whateverback.member.model.entity.User;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

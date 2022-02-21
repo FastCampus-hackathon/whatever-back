@@ -1,4 +1,4 @@
-package com.example.whateverback;
+package com.example.whateverback.member.model.entity;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
