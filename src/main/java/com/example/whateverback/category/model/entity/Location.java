@@ -1,4 +1,4 @@
-package com.example.whateverback.category.model;
+package com.example.whateverback.category.model.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

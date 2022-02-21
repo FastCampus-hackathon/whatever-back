@@ -1,4 +1,4 @@
-package com.example.whateverback.category.model;
+package com.example.whateverback.category.model.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -28,6 +28,12 @@ public class Industry {
     private Long indCd; //코드
 
     @Column(nullable = false)
-    private String name; //업종 키워드명
+    private String name; //업종명
+
+    @Column(nullable = false)
+    private String keyword; //업종 키워드명
+
+    @Column(nullable = false, name = "m_name")
+    private String mName; //산업명
 
 }
