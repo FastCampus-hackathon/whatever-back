@@ -1,6 +1,5 @@
 package com.example.whateverback.category.controller;
 
-import com.example.whateverback.auth.config.JwtAuthenticationProvider;
 import com.example.whateverback.category.service.LocationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
