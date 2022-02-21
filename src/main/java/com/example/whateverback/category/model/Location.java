@@ -1,4 +1,4 @@
-package com.example.whateverback;
+package com.example.whateverback.category.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -17,12 +17,16 @@ public class Location {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id; //근무지번호
-    @Column(nullable = false)
-    private Long loc_mcd; //1차 근무지
-    @Column(nullable = false)
-    private Long loc_bcd; //2차 근무지
-    @Column(nullable = false)
-    private Long loc_cd; //3차 근무지
+
+    @Column(nullable = false, name = "loc_mcd")
+    private Long locMcd; //1차 근무지
+
+    @Column(nullable = false, name = "loc_bcd")
+    private Long locBcd; //2차 근무지
+
+    @Column(nullable = false, name = "loc_cd")
+    private Long locCd; //3차 근무지
+
     @Column(nullable = false)
     private String name;
 

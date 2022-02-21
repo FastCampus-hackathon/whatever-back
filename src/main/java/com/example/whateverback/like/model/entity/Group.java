@@ -1,5 +1,6 @@
-package com.example.whateverback;
+package com.example.whateverback.like.model.entity;
 
+import com.example.whateverback.member.model.entity.User;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -12,13 +13,17 @@ import javax.persistence.*;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Memo {
+public class Group {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @ManyToOne
-    @JoinColumn(name= "")
-    private Post id2;
+    @JoinColumn(name= "user_id")
+    private User user;
+
+    @Column(nullable = false)
+    private String name;
 
 }

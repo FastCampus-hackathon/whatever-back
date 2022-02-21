@@ -1,6 +1,7 @@
-package com.example.whateverback;
+package com.example.whateverback.like.model.entity;
 
 import com.example.whateverback.member.model.entity.User;
+import com.example.whateverback.post.model.entity.Post;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -18,14 +19,17 @@ public class Like {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id; //찜번호
+
     @ManyToOne
-    @JoinColumn(name= "")
-    private User userId; //사용자 번호
+    @JoinColumn(nullable = false, name = "user_id")
+    private User user; //사용자 번호
+
     @ManyToOne
-    @JoinColumn(name= "")
-    private Post postId; //공고 번호
+    @JoinColumn(nullable = false, name= "post_id")
+    private Post post; //공고 번호
+
     @ManyToOne
-    @JoinColumn(name= "")
-    private Group id2; //그룹 번호
+    @JoinColumn(nullable = true, name= "group_id")
+    private Group group; //그룹 번호
 
 }
