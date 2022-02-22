@@ -2,10 +2,8 @@ package com.example.whateverback.post.model.dto;
 
 import lombok.Data;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Optional;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 @Data
 public class PostResponseDTO {
@@ -22,6 +20,7 @@ public class PostResponseDTO {
         for(Object job : ((ArrayList) map.get("job"))) {
             Job j = new Job();
 
+            j.title = (String)((HashMap<String, Object>)(((HashMap<String, Object>)job).get("position"))).get("title");
             j.id = Integer.parseInt((String)((HashMap<String, Object>)job).get("id"));
             j.url = (String)((HashMap<String, Object>)job).get("url");
             j.company = (String)((HashMap<String, Object>)(((HashMap<String, Object>)(((HashMap<String, Object>)job).get("company"))).get("detail"))).get("name");
@@ -31,9 +30,20 @@ public class PostResponseDTO {
             position.experienceLevel = (String)((HashMap<String, Object>)((HashMap<String, Object>)((HashMap<String, Object>)job).get("position")).get("experience-level")).get("name");
             position.jobName = (String)((HashMap<String, Object>)((HashMap<String, Object>)((HashMap<String, Object>)job).get("position")).get("industry")).get("name");
 
-            j.expiration = (String)((HashMap<String, Object>)job).get("expiration-timestamp");
-            j.dDay = (String)((HashMap<String, Object>)job).get("expiration-timestamp");
-            j.applyCount = Optional.ofNullable((Integer.parseInt((String)((HashMap<String, Object>)job).get("expiration-timestamp")))).orElse(0);
+            j.position = position;
+
+            String str = (String)((HashMap<String, Object>)job).get("expiration-timestamp");
+            SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd");
+            Date date = new Date(Long.parseLong(str) * 1000);
+
+            Date today = new Date();
+
+            long i = date.getTime() - today.getTime();
+
+            j.expiration = sf.format(date);
+
+            j.dDay = "D-" + i / (24 * 60 * 60 * 1000);
+            j.applyCount = Integer.parseInt(Optional.ofNullable((String)((HashMap<String, Object>)job).get("apply-cnt")).orElse("0"));
 
             postResponseDTO.jobs.add(j);
         }
@@ -43,8 +53,11 @@ public class PostResponseDTO {
 
 class Job {
     public int id;
+    public String title;
     public String url;
     public String company;
+
+    public position position;
 
     public String expiration;
     public String dDay;
