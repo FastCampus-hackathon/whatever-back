@@ -1,4 +1,4 @@
-package com.example.whateverback.post.model.DTO;
+package com.example.whateverback.post.model.dto;
 
 import lombok.Data;
 

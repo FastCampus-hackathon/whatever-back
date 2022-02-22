@@ -1,16 +1,11 @@
-package com.example.whateverback.post.model.DTO;
+package com.example.whateverback.post.model.dto;
 
-import com.example.whateverback.category.repository.IndustryRepository;
-import com.example.whateverback.category.repository.JobRepository;
-import com.example.whateverback.category.repository.JobTypeRepository;
-import com.example.whateverback.category.repository.LocationRepository;
 import com.example.whateverback.category.service.IndustryService;
 import com.example.whateverback.category.service.JobService;
 import com.example.whateverback.category.service.JobTypeService;
 import com.example.whateverback.category.service.LocationService;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Component;
 
 @Getter
 @RequiredArgsConstructor

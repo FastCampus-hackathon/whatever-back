@@ -1,6 +1,6 @@
 package com.example.whateverback.post.controller;
 
-import com.example.whateverback.post.model.DTO.PostRequestDTO;
+import com.example.whateverback.post.model.dto.PostRequestDTO;
 import com.example.whateverback.post.service.PostService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
