@@ -18,7 +18,8 @@ public class PostService {
 
     @Transactional
     public String getPosts(PostRequestDTO postRequestDTO) {
-        String apiURL = postRequestDTO.getUrl();
+        String url = "https://oapi.saramin.co.kr/job-search?access-key=DokfmvEJiPUKvncqPxcSLO5ODTq8ZTMNy6nlQC1uAwppKyTsr2fK";
+        String apiURL = postRequestDTO.getUrl(url);
 
         RestTemplate restTemplate = new RestTemplate();
         ResponseEntity<String> response = restTemplate.getForEntity(apiURL, String.class);

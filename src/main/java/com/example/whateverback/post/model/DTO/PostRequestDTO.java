@@ -5,24 +5,20 @@ import lombok.Builder;
 import lombok.Getter;
 
 @Getter
-@JsonInclude(JsonInclude.Include.NON_NULL)
 public class PostRequestDTO {
-    private String baseUrl = "https://oapi.saramin.co.kr/job-search";
-    private String accessKey = "?access-key=" + "DokfmvEJiPUKvncqPxcSLO5ODTq8ZTMNy6nlQC1uAwppKyTsr2fK";
-    private String jobMidCd;
-    private String jobTypeCd;
-    private String locBcd;
-    private String locMcd;
-    private String indMcd;
-    private String indCd;
-    private Long start;
-    private Long count;
-    private String keyword;
-    private String sort;
+    private String jobMidCd = "";
+    private String jobTypeCd = "";
+    private String locBcd = "";
+    private String locMcd = "";
+    private String indMcd = "";
+    private String indCd = "";
+    private Long start = 0L;
+    private Long count = 10L;
+    private String keyword = "";
+    private String sort = "";
 
-    @Builder
-    public String getUrl() {
-        return baseUrl + accessKey
+    public String getUrl(String url) {
+        return url
                 + "&job_mid_cd=" + jobMidCd
                 + "&job_type_cd=" + jobTypeCd
                 + "&loc_bcd=" + locBcd
