@@ -11,4 +11,6 @@ import java.util.List;
 public interface JobRepository extends JpaRepository<Job, Long> {
     @Query("SELECT distinct name FROM Job")
     List<String> findAllName();
+
+    Job findMidCdByName(String name);
 }

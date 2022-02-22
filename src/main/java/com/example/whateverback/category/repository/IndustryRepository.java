@@ -14,4 +14,7 @@ public interface IndustryRepository extends JpaRepository<Industry, Long> {
     List<String> findAllName();
 
     List<Industry> findByMidName(String midName);
+
+    List<Industry> findByName(String name);
+
 }

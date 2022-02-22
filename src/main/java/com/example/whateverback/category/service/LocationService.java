@@ -23,4 +23,17 @@ public class LocationService {
                 .map(Location::getName)
                 .collect(Collectors.toList());
     }
+
+    public String getLocationBcdByName(String name) {
+        if (name == null) return "";
+        Location location = locationRepository.findByName(name);
+        Long num = location.getLocBcd();
+        String text = num.toString();
+        return text;
+    }
+
+    public String getLocationMcdByName(String name) {
+        if (name == null) return "";
+        return locationRepository.findByName(name).getLocMcd().toString();
+    }
 }

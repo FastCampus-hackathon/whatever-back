@@ -19,10 +19,10 @@ public class Job {
     private Long id; //직무번호
 
     @Column(nullable = false, name = "job_mcd")
-    private String jobMcd; //직무 상위 코드
+    private Long jobMcd; //직무 상위 코드
 
     @Column(nullable = false, name = "job_cd")
-    private String jobCd; //직무 코드
+    private Long jobCd; //직무 코드
 
     @Column(nullable = false)
     private String name; //직무명

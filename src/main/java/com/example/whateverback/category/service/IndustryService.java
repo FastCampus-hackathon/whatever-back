@@ -21,4 +21,14 @@ public class IndustryService {
     public List<String> getIndustryListByMidName(String midName) {
         return industryRepository.findByMidName(midName).stream().map(Industry::getName).collect(Collectors.toList());
     }
+
+    public String getIndustryMcdByMidName(String midName) {
+        if (midName == null) return "";
+        return industryRepository.findByMidName(midName).get(0).getIndMcd().toString();
+    }
+
+    public String getIndustryCdByMidName(String name) {
+        if (name == null) return "";
+        return industryRepository.findByName(name).get(0).getIndBcd().toString();
+    }
 }

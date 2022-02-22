@@ -1,5 +1,9 @@
 package com.example.whateverback.post.service;
 
+import com.example.whateverback.category.service.IndustryService;
+import com.example.whateverback.category.service.JobService;
+import com.example.whateverback.category.service.JobTypeService;
+import com.example.whateverback.category.service.LocationService;
 import com.example.whateverback.post.Repository.PostRepository;
 import com.example.whateverback.post.model.DTO.PostRequestDTO;
 import com.example.whateverback.post.model.entity.Post;
@@ -15,11 +19,15 @@ import javax.transaction.Transactional;
 public class PostService {
 
     private final PostRepository postRepository;
+    private final IndustryService industryService;
+    private final JobService jobService;
+    private final JobTypeService jobTypeService;
+    private final LocationService locationService;
 
     @Transactional
     public String getPosts(PostRequestDTO postRequestDTO) {
         String url = "https://oapi.saramin.co.kr/job-search?access-key=DokfmvEJiPUKvncqPxcSLO5ODTq8ZTMNy6nlQC1uAwppKyTsr2fK";
-        String apiURL = postRequestDTO.getUrl(url);
+        String apiURL = postRequestDTO.getUrl(url, industryService, jobService, jobTypeService, locationService);
 
         RestTemplate restTemplate = new RestTemplate();
         ResponseEntity<String> response = restTemplate.getForEntity(apiURL, String.class);

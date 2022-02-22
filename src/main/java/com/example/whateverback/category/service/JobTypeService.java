@@ -17,4 +17,9 @@ public class JobTypeService {
     public List<String> getWorkTypeList() {
         return jobTypeRepository.findAll().stream().map(JobType::getJobTypeName).collect(Collectors.toList());
     }
+
+    public String getJobTypeByName(String jobTypeName) {
+        if (jobTypeName == null) return "";
+        return jobTypeRepository.findByJobTypeName(jobTypeName).getJobTypeCd().toString();
+    }
 }

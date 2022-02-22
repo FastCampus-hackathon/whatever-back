@@ -16,4 +16,8 @@ public class JobService {
         return jobRepository.findAllName();
     }
 
+    public String getJobMidCd(String name) {
+        if (name == null) return "";
+        return jobRepository.findMidCdByName(name).getJobMcd().toString();
+    }
 }
