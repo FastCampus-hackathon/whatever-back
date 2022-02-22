@@ -17,7 +17,7 @@ public class PostRequestDTO {
     private String locMcd;
     private Long start = 0L;
     private Long count = 10L;
-    private String keyword = "";
+    private String keywords = "";
     private String sort = "";
 
     public String getUrl(String url, IndustryService industryService, JobService jobService, JobTypeService jobTypeService, LocationService locationService) {
@@ -28,7 +28,7 @@ public class PostRequestDTO {
                 + "&loc_mcd=" + locationService.getLocationMcdByName(locMcd)
                 + "&start=" + start
                 + "&count=" + count
-                + "&keyword=" + keyword
+                + "&keywords=" + keywords
                 + "&sort=" + sort;
     }
 }
