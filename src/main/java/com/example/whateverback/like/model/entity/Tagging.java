@@ -21,10 +21,6 @@ public class Tagging {
     private Long id; //그룹핑 번호
 
     @ManyToOne
-    @JoinColumn(nullable = false, name = "user_id")
-    private User user; //사용자 번호
-
-    @ManyToOne
     @JoinColumn(nullable = false, name= "tag_id")
     private Tag tag; //공고 번호
 
