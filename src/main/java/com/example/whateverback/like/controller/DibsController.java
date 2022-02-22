@@ -1,8 +1,8 @@
 package com.example.whateverback.like.controller;
 
 import com.example.whateverback.auth.config.JwtAuthenticationProvider;
-import com.example.whateverback.like.service.DibsService;
 
+import com.example.whateverback.like.service.DibsService;
 import com.example.whateverback.post.service.PostService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
