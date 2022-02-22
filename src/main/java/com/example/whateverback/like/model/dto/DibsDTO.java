@@ -1,4 +1,4 @@
-package com.example.whateverback.like.model.entity.dto;
+package com.example.whateverback.like.model.dto;
 
 import com.example.whateverback.like.model.entity.Dibs;
 import com.example.whateverback.member.model.entity.User;

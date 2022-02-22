@@ -1,8 +1,9 @@
-package com.example.whateverback.like.model.entity.controller;
+package com.example.whateverback.like.controller;
 
 import com.example.whateverback.auth.config.JwtAuthenticationProvider;
-import com.example.whateverback.like.model.entity.service.DibsService;
-import com.example.whateverback.post.model.entity.service.PostService;
+
+import com.example.whateverback.like.service.DibsService;
+import com.example.whateverback.post.service.PostService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
