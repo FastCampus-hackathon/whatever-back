@@ -20,6 +20,11 @@ public class AuthService {
 
     public void join(JoinDTO joinDTO) {
         joinDTO.encodePassword(passwordEncoder);
+
+        if (userService.findByUserId(joinDTO.getUserId()) != null) {
+            throw new IllegalArgumentException("이미 존재하는 아이디입니다.");
+        }
+
         userService.saveUser(joinDTO);;
     }
 
