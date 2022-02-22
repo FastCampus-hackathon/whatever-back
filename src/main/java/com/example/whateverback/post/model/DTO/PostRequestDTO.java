@@ -10,22 +10,28 @@ public class PostRequestDTO {
     private String baseUrl = "https://oapi.saramin.co.kr/job-search";
     private String accessKey = "?access-key=" + "DokfmvEJiPUKvncqPxcSLO5ODTq8ZTMNy6nlQC1uAwppKyTsr2fK";
     private String jobMidCd;
-    private String jobCd;
-    private String jobType;
-    private String locCd;
+    private String jobTypeCd;
+    private String locBcd;
+    private String locMcd;
+    private String indMcd;
     private String indCd;
-    private String page;
-    private String count;
+    private Long start;
+    private Long count;
+    private String keyword;
+    private String sort;
 
     @Builder
     public String getUrl() {
         return baseUrl + accessKey
                 + "&job_mid_cd=" + jobMidCd
-                + "&job_cd=" + jobCd
-                + "&job_type=" + jobType
-                + "&loc_cd=" + locCd
+                + "&job_type_cd=" + jobTypeCd
+                + "&loc_bcd=" + locBcd
+                + "&loc_mcd=" + locMcd
+                + "&ind_mcd=" + indMcd
                 + "&ind_cd=" + indCd
-                + "&page=" + page
-                + "&count=" + count;
+                + "&start=" + start
+                + "&count=" + count
+                + "&keyword=" + keyword
+                + "&sort=" + sort;
     }
 }
