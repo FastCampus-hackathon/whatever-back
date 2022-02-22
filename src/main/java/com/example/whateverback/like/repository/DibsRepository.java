@@ -1,4 +1,4 @@
-package com.example.whateverback.like.model.entity.repository;
+package com.example.whateverback.like.repository;
 
 import com.example.whateverback.like.model.entity.Dibs;
 import com.example.whateverback.member.model.entity.User;
