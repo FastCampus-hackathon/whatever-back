@@ -10,6 +10,7 @@ import java.util.Optional;
 
 @Repository
 public interface DibsRepository extends JpaRepository<Dibs, Long> {
-
     Optional<Dibs> findByUserAndPost(User user, Post post);
+
+    Optional<Dibs> findByPost(Post post);
 }
