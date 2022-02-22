@@ -14,9 +14,7 @@ public class PostController {
 
     @PostMapping("/post")
     public ResponseEntity getPosts(@RequestBody PostRequestDTO postRequestDTO) {
-        String json = postService.getPosts(postRequestDTO);
-
-        return new ResponseEntity(json, HttpStatus.OK);
+        return new ResponseEntity(postService.getPosts(postRequestDTO), HttpStatus.OK);
     }
 
     @GetMapping("/post/{id}")

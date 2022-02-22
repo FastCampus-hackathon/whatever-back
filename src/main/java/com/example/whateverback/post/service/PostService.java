@@ -6,13 +6,17 @@ import com.example.whateverback.category.service.JobTypeService;
 import com.example.whateverback.category.service.LocationService;
 import com.example.whateverback.post.Repository.PostRepository;
 import com.example.whateverback.post.model.DTO.PostRequestDTO;
+import com.example.whateverback.post.model.DTO.PostResponseDTO;
 import com.example.whateverback.post.model.entity.Post;
+import com.fasterxml.jackson.databind.util.JSONPObject;
 import lombok.RequiredArgsConstructor;
+import org.apache.tomcat.util.json.JSONParser;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import javax.transaction.Transactional;
+import java.util.HashMap;
 
 @Service
 @RequiredArgsConstructor
@@ -25,14 +29,14 @@ public class PostService {
     private final LocationService locationService;
 
     @Transactional
-    public String getPosts(PostRequestDTO postRequestDTO) {
+    public PostResponseDTO getPosts(PostRequestDTO postRequestDTO) {
         String url = "https://oapi.saramin.co.kr/job-search?access-key=DokfmvEJiPUKvncqPxcSLO5ODTq8ZTMNy6nlQC1uAwppKyTsr2fK";
         String apiURL = postRequestDTO.getUrl(url, industryService, jobService, jobTypeService, locationService);
 
         RestTemplate restTemplate = new RestTemplate();
-        ResponseEntity<String> response = restTemplate.getForEntity(apiURL, String.class);
+        HashMap<String, Object> response = restTemplate.getForObject(apiURL, HashMap.class);
 
-        return response.getBody();
+        return PostResponseDTO.toDTO(response);
     }
 
     @Transactional
