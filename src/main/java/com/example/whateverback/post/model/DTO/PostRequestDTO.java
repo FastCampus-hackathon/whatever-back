@@ -1,7 +1,5 @@
 package com.example.whateverback.post.model.DTO;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
-import lombok.Builder;
 import lombok.Getter;
 
 @Getter
