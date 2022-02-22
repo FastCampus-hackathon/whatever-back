@@ -27,6 +27,7 @@ public class PostResponseDTO {
 
             position position = new position();
             position.location = (String)((HashMap<String, Object>)((HashMap<String, Object>)((HashMap<String, Object>)job).get("position")).get("location")).get("name");
+            position.location = position.location.replaceAll("&gt;", "");
             position.experienceLevel = (String)((HashMap<String, Object>)((HashMap<String, Object>)((HashMap<String, Object>)job).get("position")).get("experience-level")).get("name");
             position.jobName = (String)((HashMap<String, Object>)((HashMap<String, Object>)((HashMap<String, Object>)job).get("position")).get("industry")).get("name");
 
