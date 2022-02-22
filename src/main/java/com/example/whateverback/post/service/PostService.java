@@ -29,7 +29,7 @@ public class PostService {
     @Transactional
     public PostResponseDTO getPosts(PostRequestDTO postRequestDTO) {
         String url = "https://oapi.saramin.co.kr/job-search?access-key=DokfmvEJiPUKvncqPxcSLO5ODTq8ZTMNy6nlQC1uAwppKyTsr2fK";
-        String apiURL = postRequestDTO.getUrl(url, industryService, jobService, jobTypeService, locationService);
+        String apiURL = postRequestDTO.getUrl(url, jobService, jobTypeService, locationService);
 
         RestTemplate restTemplate = new RestTemplate();
         HashMap<String, Object> response = restTemplate.getForObject(apiURL, HashMap.class);
