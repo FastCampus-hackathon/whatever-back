@@ -11,21 +11,21 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class PostRequestDTO {
 
-    private String job;
-    private String job_type ;
-    private String loc_bcd;
-    private String loc_mcd;
+    private String jobMidCd;
+    private String jobTypeCd ;
+    private String locBcd;
+    private String locMcd;
     private Long start = 0L;
     private Long count = 10L;
     private String keywords = "";
     private String sort = "";
 
-    public String getUrl(String url, JobService jobService, JobTypeService jobTypeService, LocationService locationService) {
+    public String getUrl(String url, IndustryService industryService, JobService jobService, JobTypeService jobTypeService, LocationService locationService) {
         return url
-                + "&job_mid_cd=" + jobService.getJobMidCd(job)
-                + "&job_type_cd=" + jobTypeService.getJobTypeByName(job_type)
-                + "&loc_bcd=" + locationService.getLocationBcdByName(loc_bcd)
-                + "&loc_mcd=" + locationService.getLocationMcdByName(loc_mcd)
+                + "&job_mid_cd=" + jobService.getJobMidCd(jobMidCd)
+                + "&job_type_cd=" + jobTypeService.getJobTypeByName(jobTypeCd)
+                + "&loc_bcd=" + locationService.getLocationBcdByName(locBcd)
+                + "&loc_mcd=" + locationService.getLocationMcdByName(locMcd)
                 + "&start=" + start
                 + "&count=" + count
                 + "&keywords=" + keywords
